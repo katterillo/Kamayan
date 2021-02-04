@@ -1,6 +1,31 @@
+/*.topdiv {
+    position: absolute;
+    min-width: 1024px;
+}
 .topnav {
-    background-color: blue;
+    background-color: rgb(62, 157, 173);
     position: relative;
     top: 0px;
     left: 0px;
+}*/
+
+/*.searchbar input[type="text"] {
+    position:absolute;
+    left:25%;
+    top:25%;
+    width:40%;
+    
+    background-color:white;
+    color:grey;
+}*/
+
+.featured_recipe {
+    position: absolute;
+    left:35%;
+    top:50%;
+}
+
+.pad_see_ew {
+    object-position: top;
+
 }
