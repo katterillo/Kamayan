@@ -1,9 +1,6 @@
 <%#= will show in all pages %>
-    <!--<div class="topdiv">
-<br>
-    <img src="assets/pad_see_ew.jpg" class="pad_see_ew" alt="Pad See Ew" />
-</div>-->
- <div class="h-8 shadow">
-        <%= link_to "Home", root_path, class: "absolute top-0 left-0 pl-6" %>
-        <%= link_to "About", about_index_url, class: "absolute top-0 right-0 pr-6" %>
-   </div>
+<nav class="flex justify-between">
+        <%= link_to "Home", root_path, class: "font-serif pt-6 pl-6" %>
+        <img src="assets/kamayan_logo.png" class="h-20 w-auto" />
+        <%= link_to "About", about_index_url, class: "font-serif pt-6 pr-6" %>
+   </nav>
