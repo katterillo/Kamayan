@@ -2,15 +2,14 @@
 <%#= recipe.inspect %>
 <div class="w-auto border border-4 shadow inline-block hover:border-green-300">
   <h3 class="font-serif"> 
-   <%= image_tag recipe["image"] %>
+    <%= image_tag recipe["image"] %>
     <%= recipe["title"] %> <br>
     Number of ingredients included: <%= recipe["usedIngredientCount"] %>
     <br>
     Missing <%= recipe["missedIngredientCount"]%> ingredients.
     Missing ingredients are
- <%recipe["missedIngredients"].each do |rec|%>
-  <%= rec["name"]%>
-  <%end%>
+    <%recipe["missedIngredients"].each do |rec|%>
+      <%= rec["name"]%>
+    <%end%>
  </h3>
-   
 </div>
