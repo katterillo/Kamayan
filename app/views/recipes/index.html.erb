@@ -1,6 +1,7 @@
 <%= render partial: "shared/header" %>
 <div>
     <%= render partial: "home/searchbar"%>
+    <%#= @recipes["totalResults"].inspect %>
 </div>
 <div>
     <%= render partial: "recipe", collection: @recipes %>
