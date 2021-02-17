@@ -1,0 +1,15 @@
+<%= render partial: "shared/header" %>
+<div>
+    <%= @recipe["title"] %>
+        <div>
+            <%= image_tag @recipe["image"], class: "rounded shadow" %>
+        </div>
+        <div>
+         <% @recipe["extendedIngredients"].each do |ingredient| %>
+            <%= ingredient["original"] %>
+         <%end%>
+        </div>
+    <div>
+      <%= @recipe["instructions"].html_safe %>
+    </div>
+</div>
