@@ -1,8 +1,8 @@
 <%= render partial: "shared/header" %>
 <div>
     <%= render partial: "home/searchbar"%>
-    <%#= @recipes["totalResults"].inspect %>
 </div>
-<div>
+<br> <br>
+<div class="grid grid-flow-col grid-rows-4 gap-3">
     <%= render partial: "recipe", collection: @recipes %>
 </div>

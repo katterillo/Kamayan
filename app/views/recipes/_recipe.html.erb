@@ -1,7 +1,5 @@
-<%#= recipe["title"].inspect %>
-<%#= recipe.inspect %>
 <%= link_to recipe_path(id: recipe["id"]) do %>
- <div class="w-auto border border-4 margin-auto inline-block items-center max-w-sm shadow hover:bg-gray-200">
+ <div class="border border-4 shadow hover:bg-gray-200">
   <h3 class="font-custom text-center"> 
     <%= recipe["title"] %>
     <%= image_tag recipe["image"], class: "rounded shadow" %>
