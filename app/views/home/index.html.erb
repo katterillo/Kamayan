@@ -1,3 +1,8 @@
 <%= render partial: "shared/header" %>
-<%= render partial: "home_img" %>
-<%= render partial: "searchbar" %>
+<div class="relative flex flex-col height-screen bg-cover items-center">
+    <%= render partial: "home_img" %>
+    <div class="absolute">
+        <%= render partial: "searchbar" %>
+    </div>
+</div>
+ 

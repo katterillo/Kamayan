@@ -1,11 +1,9 @@
         <!-- <textarea placeholder="Enter the ingredients you have to find recipes that you can make!" rows="2" cols="60" 
       class=" focus:outline-none focus:ring focus:border-green-100 
       shadow placeholder-grey-500 font-serif text-2xl text-center "></textarea>-->
-    
-      <%= form_with url: "/recipes", class: "shadow", method: :get do |form| %>
-            <%= form.search_field :query, class: "shadow border border-4 outline-none border-gray-500 rounded bg-gray-200 focus:bg-white" %>
-            <%= form.submit "Search", class: "rounded shadow border-1 border-gray-500 font-custom bg-gray-200 text-gray-700 hover:bg-gray-400" %>
-      <% end %>
-      </div>
-</div>
- 
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<%= form_with url: "/recipes", class: "shadow", method: :get do |form| %>
+      <%= form.search_field :query, class: "shadow border border-4 outline-none border-gray-500 rounded bg-gray-200 focus:bg-white" %>
+      <%= form.submit "Search", class: "rounded shadow border-1 border-gray-500 font-custom bg-gray-200 text-gray-700 hover:bg-gray-400" %>
+<% end %>
+     
