@@ -1,8 +1,10 @@
 <%= link_to recipe_path(id: recipe["id"]) do %>
  <div class="border border-4 shadow hover:bg-gray-200">
-  <h3 class="font-custom text-center"> 
+  <h3 class="font-custom"> 
     <%= recipe["title"] %>
-    <%= image_tag recipe["image"], class: "rounded shadow" %>
+    <center>
+    <%= image_tag recipe["image"] %>
+    </center>
     <%= recipe["usedIngredientCount"] %> ingredient(s) included.
     <br>
     <%= recipe["missedIngredientCount"]%> missing ingredients:
