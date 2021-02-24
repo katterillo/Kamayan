@@ -1,6 +1,6 @@
 <%= link_to recipe_path(id: recipe["id"]) do %>
  <div class="border border-4 shadow hover:bg-gray-200">
-  <h3 class="font-custom"> 
+  <h3 class="font-custom text-sm"> 
     <%= recipe["title"] %>
     <center>
     <%= image_tag recipe["image"] %>
@@ -8,9 +8,9 @@
     <%= recipe["usedIngredientCount"] %> ingredient(s) included.
     <br>
     <%= recipe["missedIngredientCount"]%> missing ingredients:
-    <h4 class="text-xs break-words text-center">
+    <h4 class="text-xs break-words text-center px-10">
       <%recipe["missedIngredients"].each do |rec|%>
-      <%= rec["name"]%>
+      •<%= rec["name"]%>
       <%end%>
     </h4>
   </h3>
