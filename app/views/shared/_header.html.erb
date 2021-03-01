@@ -4,5 +4,10 @@
          <%= link_to root_path do %>
         <%=image_tag("kamayan_logo.png", class: "h-20 w-auto")%>
         <% end %>
+        <% if user_signed_in?%>
+                <%= link_to "Logout",destroy_user_session_url, method: :delete, class: "font-semibold pt-6 pr-6 text-lg text-gray-700 hover:text-green-700 hover:text-opacity-75" %>
+        <% else %>
+                <%= link_to "Login",new_user_session_url, class: "font-semibold pt-6 pr-6 text-lg text-gray-700 hover:text-green-700 hover:text-opacity-75" %>
+        <%end%>
         <%= link_to "About", about_index_url, class: "font-semibold pt-6 pr-6 text-lg text-gray-700 hover:text-green-700 hover:text-opacity-75" %>
    </nav>
