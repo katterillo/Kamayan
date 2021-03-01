@@ -1,18 +1,17 @@
 <%= link_to recipe_path(id: recipe["id"]) do %>
  <div class=" shadow hover:shadow-lg pb-3 xl:p-5 transition duration-100 ease-in-out transform hover:-translate-y-2 hover:scale-105">
-  
     <center>
-    <%= image_tag recipe["image"] %>
+      <%= image_tag recipe["image"] %>
     </center>
     <h3 class="font-semibold text-md text-gray-800 m-2"> 
       <%= recipe["title"] %>
       <br>
-    <h5 class="text-xs break-words m-2 font-semibold text-gray-800">
-    <%= recipe["missedIngredientCount"]%> missing ingredients: <br>
-      <%recipe["missedIngredients"].each do |rec|%>
-      •<%= rec["name"]%>
+      <h5 class="text-xs break-words m-2 font-semibold text-gray-800">
+        <%= recipe["missedIngredientCount"]%> missing ingredients: <br>
+        <%recipe["missedIngredients"].each do |rec|%>
+        •<%= rec["name"]%>
       <%end%>
-    </h5>
-  </h3>
-</div>
+      </h5>
+    </h3>
+  </div>
 <%end%>
