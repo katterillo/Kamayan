@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'faraday', '~> 1.3'
 
+gem 'devise', '~> 4.7'
+
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 
 # Use Active Storage variant

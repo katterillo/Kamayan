@@ -1,8 +1,14 @@
-<%#= will show in all pages %>
-<nav class="flex justify-between border bg-white shadow-lg">
-        <%= link_to "Home", root_path, class: "font-semibold pt-6 pl-6 text-lg text-gray-700 hover:text-green-700 hover:text-opacity-75" %>
-         <%= link_to root_path do %>
-        <%=image_tag("kamayan_logo.png", class: "h-20 w-auto")%>
+<nav class="flex space-between items-center border-t-0 w-screen border-l-8 border-r-8 h-auto m-auto bg-green-dark shadow-lg">
+        <%= link_to root_path do %>
+                <%=image_tag("kamayan_logo_white.png", class: "py-2 px-6 h-16 w-auto mx-3 my-1 mr-4")%>
         <% end %>
-        <%= link_to "About", about_index_url, class: "font-semibold pt-6 pr-6 text-lg text-gray-700 hover:text-green-700 hover:text-opacity-75" %>
-   </nav>
+        <%= link_to "Home", root_path, class: "font-semibold text-lg mr-8 text-white hover:underline" %>
+        <%= link_to "About", about_index_url, class: "font-semibold text-lg text-white hover:underline" %>       
+        <div class="ml-auto">
+                <% if user_signed_in?%>
+                        <%= link_to "Logout",destroy_user_session_url, method: :delete, class: "font-semibold pt-6 pr-6 mx-3 text-lg text-white hover:underline" %>
+                <% else %>
+                        <%= link_to "Login",new_user_session_url, class: "font-semibold pt-6 pr-6 mx-6 text-lg text-white hover:underline" %>
+                <%end%>
+        </div>
+</nav>
