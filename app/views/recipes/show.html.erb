@@ -4,20 +4,22 @@
 </div>
 <br> <br>
 <div class="border border-4 shadow w-9/12 m-auto ">
-    <div class="flex flex-wrap">
+    <div class="">
         <div>
+        <h1 class="font-semibold text-3xl text-center text-gray-800">
             <%= @recipe["title"] %>
+            </h1>
+            <div class="w-7/12 xl:w-5/12 m-auto">
+                <%= image_tag @recipe["image"], class: "rounded shadow block mx-auto" %>
+            </div>
             <div>
-                <h1 class="font-custom">
+                <h2 class="font-semibold py-2 px-20 text-gray-800">
                     Ingredients:
                     <% @recipe["extendedIngredients"].each do |ingredient| %>
                     <br>•<%= ingredient["original"] %>
                     <%end%>
-                </h1>
+                </h2>
             </div>
-            <div class="w-1/2">
-        <%= image_tag @recipe["image"], class: "rounded shadow block mx-auto" %>
-        </div>
         <div>
             <h1 class="font-custom">
                 Steps:
