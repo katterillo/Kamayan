@@ -1,4 +1,4 @@
-<%= form_with url: "/recipes", class: "shadow", method: :get do |form| %>
-      <%= form.search_field :query, class: "shadow outline-none border-gray-500 rounded bg-gray-right focus:bg-white" %>
-      <%= form.submit "Search", class: "rounded border-gray-500 font-custom bg-gray-200 text-gray-700 hover:bg-green-800 hover:text-white hover:bg-opacity-75" %>
+<%= form_with url: "/recipes", class: "", method: :get do |form| %>
+      <%= form.search_field :query, class: "shadow-md outline-none bg-gray-200 rounded focus:bg-white" %>
+      <%= form.submit "Search", class: "rounded border-gray-500 font-custom bg-gray-200 text-gray-700 hover:bg-green-dark hover:text-white" %>
 <% end %>
