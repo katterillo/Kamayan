@@ -1,33 +1,35 @@
 <%= render partial: "shared/header" %>
 <div>
-<%= render partial: "home/searchbar"%>
+    <%= render partial: "home/searchbar"%>
 </div>
 <br> <br>
-<div class="border border-4 shadow w-7/12 h-8/12 text-center m-auto ">
-    <%= @recipe["title"] %>
-    <div>
+<div class="border border-4 shadow w-9/12 m-auto ">
+    <div class="flex flex-wrap">
+        <div>
+            <%= @recipe["title"] %>
+            <div>
+                <h1 class="font-custom">
+                    Ingredients:
+                    <% @recipe["extendedIngredients"].each do |ingredient| %>
+                    <br>•<%= ingredient["original"] %>
+                    <%end%>
+                </h1>
+            </div>
+            <div class="w-1/2">
         <%= image_tag @recipe["image"], class: "rounded shadow block mx-auto" %>
-    </div>
-    <div>
-    <h1 class="font-custom">
-        Ingredients:
-        <% @recipe["extendedIngredients"].each do |ingredient| %>
-        <br>•<%= ingredient["original"] %>
-        <%end%>
-    </h1>
-    </div>
-    <div>
-    <h1 class="font-custom">
-    Steps:
-        <%= @recipe["instructions"].html_safe %>
-        </h1>
-    </div>
-     <%= link_to @recipe["sourceUrl"] do %>
-    <div>
-        <h1 class="font-custom text-sm underline">
-        <br>
-            Read full directions
-        </h1>
+        </div>
+        <div>
+            <h1 class="font-custom">
+                Steps:
+                <%= @recipe["instructions"].html_safe %>
+            </h1>
+        </div>
+            <%= link_to @recipe["sourceUrl"] do %>
+            <div>
+                <h1 class="font-custom text-sm underline">
+                <br>Read full directions</h1>
+            </div>
+        </div>
     </div>
     <%end%>
 </div>

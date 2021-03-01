@@ -1,5 +1,10 @@
 <%= render partial: "shared/header" %>
-<div class="flex justify-center items-center">
-<%= render partial: "searchbar"%>
-<%= render partial: "home_img" %>
+<div class="relative">
+<div class="absolute h-30 w-screen m-auto">
+    <%= render partial: "home_img" %>
+    </div>
+    <div class="absolute rounded-md w-4/12 xl:w-3/12 bg-green-900 bg-opacity-50 m-8 xl:m-20 pb-8 pl-8 pr-8 pt-3 xl:my-20 text-center transition duration-500 ease-in-out hover:bg-opacity-75 hover:-translate-y-1 hover:scale-110">
+        <h1 class="opacity-100 text-gray-200 text-2xl font-custom font-semibold p-1">What's in your fridge? </h1>
+        <%= render partial: "searchbar"%>
+    </div>
 </div>
