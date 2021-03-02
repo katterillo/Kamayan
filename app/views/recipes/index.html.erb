@@ -1,9 +1,9 @@
 <%= render partial: "shared/header" %>
- <div class="absolute h-30 w-screen px-2 mt-2">
-<%= render partial: "home/searchbar"%>
+<div class="absolute w-11/12 left-0 right-0 py-3 m-auto">
+    <%= render partial: "home/searchbar"%>
 </div>
-<br> <br>
-<div class="w-11/12 border border-2 m-10 px-10 shadow justify-center m-auto bg-white">
-<div class="grid grid-flow-row grid-cols-2 gap-3 xl:grid-cols-3 justify-center">
-    <%= render partial: "recipe", collection: @recipes %>
+<div class="w-11/12 border border-2 py-10 m-10 mt-12 px-10 shadow justify-center m-auto bg-white">
+    <div class="grid grid-flow-row grid-cols-2 xl:grid-cols-3 justify-center px-4">
+        <%= render partial: "recipe", collection: @recipes %>
+    </div>
 </div>

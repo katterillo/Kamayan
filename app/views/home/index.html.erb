@@ -1,10 +1,10 @@
 <%= render partial: "shared/header" %>
 <div class="bg-white"> <br> </div>
     <div class="relative">
-        <div class="absolute h-30 w-screen px-2 m-auto">
-            <%= render partial: "home_img" %>
+        <div class="absolute w-11/12 left-0 right-0 m-auto">
+            <%= render partial: "home_img", class: ""%>
         </div>
-        <div class="absolute w-4/12 h-auto bg-white transition mx-16 my-16 p-8 text-center duration-500 ease-in-out hover:-translate-y-1 hover:scale-110">
+        <div class="absolute w-4/12 h-auto bg-white transition ml-32 my-16 p-8 text-center duration-500 ease-in-out hover:-translate-y-1 hover:scale-110">
             <h1 class="opacity-100 text-black text-6xl font-custom pb-2">What's In Your Fridge? </h1>
             <h2 class="opacity-100 text-black text-md font-custom pb-3">You choose the ingredients. We provide the recipe. Whether you're a beginner or long time home cook, we have something for everyone. </h2>
             <%= render partial: "searchbar"%>

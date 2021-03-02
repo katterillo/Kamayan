@@ -1,47 +1,52 @@
-<%= render partial: "shared/header" %>
-<div class="mt-2 px-2 bg-gray-100">
-    <%= render partial: "home/searchbar"%>
-</div>
-<div class="pl-20 pr-16 pt-8 bg-gray-100 m-auto">
-    <div class="flex flex-row">
-        <div class="flex flex-col">
-            <h1 class="font-semibold text-5xl text-gray-800">
-                <%= @recipe["title"] %>
-            </h1>
-            <div class="mt-6 flex flex-row">
-                <div class="pl-2 border-r border-t border-b w-3/12 border-black">
-                    Serves <%= @recipe["servings"]%>
-                </div>
-                <div class="pl-2 pr-2 border-l border-t border-b border-black">
-                Ready in <%= @recipe["readyInMinutes"]%> min
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col w-8/12">
-            <div class="ml-auto w-6/12">
-                <%= image_tag @recipe["image"], class: "" %>
-            </div>
-        </div>
+<div class="bg-beige">
+    <%= render partial: "shared/header" %>
+    <div class="absolute w-11/12 left-0 right-0 pt-2 pb-2 m-auto">
+        <%= render partial: "home/searchbar"%>
     </div>
-    <div class="flex flex-row mt-12">
-        <div class="w-6/12">
-            <%= @recipe["summary"].html_safe%>
+    <div class="pl-20 pr-16 pt-20 m-auto">
+        <div class="flex flex-row">
+            <div class="flex flex-col w-6/12 ">
+                <h1 class="font-bold text-5xl text-black">
+                    <%= @recipe["title"] %>
+                </h1>
+                <div class="mt-6 flex flex-row">
+                    <div class="pl-2 border-r border-t border-b w-3/12 border-black">
+                        Serves <%= @recipe["servings"]%>
+                    </div>
+                    <div class="pl-2 pr-2 border-l border-t border-b border-black">
+                    Ready in <%= @recipe["readyInMinutes"]%> min
+                    </div>
+                </div>
+            </div>
+            <div class="ml-auto w-3/12">
+                <div class="ml-auto">
+                    <%= image_tag @recipe["image"], class: "" %>
+                </div>
+            </div>
         </div>
-        <div class="px-40 ml-auto w-5/12 bg-white h-64 overflow-auto">
-            <h2 class="-mb-16 text-4xl font-semibold mt-6">Ingredients</h2>
-            <h3 class="mt-6 font-semibold">
-                    <% @recipe["extendedIngredients"].each do |ingredient| %>
-                <br><br><%= ingredient["original"] %>
-                    <%end%>
+        <div class="flex flex-row pb-6 mt-20">
+            <div class="w-6/12">
+                <!--<span class="font-normal"><%= @recipe["summary"].html_safe%> </span>-->
+                <h2 class="text-2xl font-bold">
+                    Instructions
+                    <h2 class="text-md leading-loose">
+                        <%= @recipe["instructions"].html_safe %> <br>
+                    </h2>
+                </h2>
+            <%= link_to @recipe["sourceUrl"],target: :_blank do %>
+                <h3 class="font-custom text-sm underline">
+                <br>Read full directions
                 </h3>
-        </div>
+            <%end%>    
+            </div>
+            <div class="mb-6 pl-32 ml-auto w-5/12 bg-white h-4/6 top-0">
+                <h2 class="-mb-16 text-2xl font-bold mt-6">Ingredients
+                </h2>
+                <h3 class="mt-8 leading-loose">
+                        <% @recipe["extendedIngredients"].each do |ingredient| %>
+                        <br><%= ingredient["original"] %>
+                        <%end%>
+                </h3>
+            </div>
+    </div>
 </div>
-
-<h1 class="font-custom">
-Steps:
-<%= @recipe["instructions"].html_safe %>
-</h1>
-<%= link_to @recipe["sourceUrl"] do %>
-<h1 class="font-custom text-sm underline">
-<br>Read full directions</h1>
-<%end%>
