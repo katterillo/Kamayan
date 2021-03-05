@@ -1,6 +1,7 @@
 <%= render partial: "shared/header" %>
 <div class="absolute w-11/12 left-0 right-0 py-3 m-auto">
     <%= render partial: "home/searchbar"%>
+    <%=link_to "Add a recipe", new_recipe_url, class: "" %>
 </div>
 <div class="w-11/12 border border-2 py-10 m-10 mt-12 px-10 shadow justify-center m-auto bg-white">
     <div class="grid grid-flow-row grid-cols-2 xl:grid-cols-3 justify-center px-4">
