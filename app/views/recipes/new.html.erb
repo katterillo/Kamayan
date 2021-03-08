@@ -1,7 +1,7 @@
 <%= render partial: "shared/header" %>
 <h1>Add new recipe</h1>
 
-<%= form_with scope: :recipe,
+<%= form_for @recipe do |form|
 url: recipes_url,
 local: true do |form| %>
   <p>
@@ -15,6 +15,14 @@ local: true do |form| %>
   </p>
 
   <p>
-    <%= form.submit %>
+  <%= form.fields_for :ingredients do |f| %>
+   <%= f.label :measurement %><br>
+    <%= f.text_field :measurement %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%#= render 'ingredients_fields', f: f %>
+    <%= link_to_add_fields 'Add Recipe Ingredient', f, :ingredients %>
+  <%= form.submit %>
   </p>
 <% end %>
