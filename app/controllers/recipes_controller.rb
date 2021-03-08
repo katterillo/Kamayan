@@ -14,5 +14,17 @@ class RecipesController < ApplicationController
         @recipe = Recipe.new
     end
 
-    
+    def create
+        @recipe = Recipe.new(recipe_params.merge({user_id: current_user.id}))
+        if @recipe.save
+            redirect_to @recipe
+        else
+            render 'new'
+        end
+    end
+
+    def recipe_params
+        params.require(:recipe).permit(:title, :description)
+    end
+
 end
