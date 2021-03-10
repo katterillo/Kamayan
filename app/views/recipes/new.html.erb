@@ -1,27 +1,21 @@
 <%= render partial: "shared/header" %>
+<div>
 <h1>Add new recipe</h1>
-<%#=javascript_pack_tag 'ingredient_fields' %>
-<%= form_for @recipe do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
+  <%= form_for @recipe do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: "border" %>
+    </p>
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description, class: "border"%>
+    </p>
 
-  <%= f.fields_for :ingredients, Ingredient.new do |ff| %>
-    <p>
-      <%= ff.label :measurement %><br>
-      <%= ff.text_field :measurement %>
-    </p>
-    <p>
-      <%= ff.label :description %><br>
-      <%= ff.text_field :description %>
-    </p>
-        <%#= render 'ingredients_fields', f: f %>
+    <%= f.fields_for :ingredients do |f| %>
+          <%= render 'ingredient_fields', f: f %>
+      <%end%>
     <%= link_to_add_fields 'Add Recipe Ingredient', f, :ingredients %>
-    <%end%>
-  <%= f.submit %>
-<% end %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+</div>

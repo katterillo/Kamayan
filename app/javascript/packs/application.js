@@ -8,25 +8,22 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import '../css/application.css'
+require("jquery")
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(document).on('turbolinks:load', function() {
-
-    $('form').on('click', '.remove_record', function(event) {
-      $(this).prev('input[type=hidden]').val('1');
-      $(this).closest('tr').hide();
-      return event.preventDefault();
+$("[data-form-prepend]").on("click", function(e) {
+  console.log("here");
+    var obj = $($(this).attr("data-form-prepend"));
+    obj.find("input, select, textarea").each(function() {
+      $(this).attr("name", function() {
+        return $(this)
+          .attr("name")
+          .replace("new_record", new Date().getTime());
+      });
     });
-  
-    $('form').on('click', '.add_fields', function(event) {
-      var regexp, time;
-      time = new Date().getTime();
-      regexp = new RegExp($(this).data('id'), 'g');
-      $('.fields').append($(this).data('fields').replace(regexp, time));
-      return event.preventDefault();
-    });
-    
+    obj.insertBefore(this);
+    return false;
   });
