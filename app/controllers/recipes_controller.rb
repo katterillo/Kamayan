@@ -12,12 +12,12 @@ class RecipesController < ApplicationController
 
     def new
         @recipe = Recipe.new
+        @recipe.ingredients.build
     end
 
     def create
         @recipe = Recipe.new(recipe_params.merge({user_id: current_user.id}))
-        #current_user.recipes << Recipe.find(current_user.id)
-        if @recipe.save
+         if @recipe.save
             redirect_to @recipe
         else
             render 'new'
@@ -27,7 +27,8 @@ class RecipesController < ApplicationController
     def recipe_params
         params.require(:recipe).permit(
             :title, :description,
-            ingredients_attributes: [ :measurement, :description, :_destroy ]
+            ingredients_attributes: Ingredient.attribute_names.map(&:to_sym).push(:_destroy)
+            #ingredients_attributes: [ :id, :measurement, :recipe_id, :description, :_destroy ]
         )
     end
 
