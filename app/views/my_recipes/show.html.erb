@@ -1,0 +1,26 @@
+<div class="bg-beige">
+    <%= render partial: "shared/header" %>
+    <%=link_to "My recipes", my_recipes_url, class: "font-medium text-lg mr-8 border-2 border-green-dark text-green-dark p-1 hover:text-white rounded hover:bg-green-dark hover:border-transparent" %>
+    <div class="pl-20 pr-16 pt-20 m-auto">
+        <div class="flex flex-row">
+            <div class="flex flex-col w-6/12 ">
+                <h1 class="font-bold text-5xl text-black">
+                    <%= @recipe.title %>
+                </h1>
+            </div>
+        </div>
+        <div class="flex flex-row pb-6 mt-20">
+            <div class="mb-6 px-32 ml-auto w-5/12 bg-white h-4/6 top-0">
+                <h2 class="-mb-16 text-2xl font-bold mt-6">Ingredients
+                </h2>
+                <h3 class="mt-8 leading-loose">
+                    <% if @recipe.ingredients.any? %>
+                        <% @recipe.ingredients.each do |ingredient| %>
+                        <br><%= ingredient.measurement %>
+                        <br><%= ingredient.description %>
+                        <%end%>
+                    <%end%>
+                </h3>
+            </div>
+    </div>
+</div>

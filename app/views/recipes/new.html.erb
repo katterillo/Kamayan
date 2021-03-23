@@ -1,23 +1,31 @@
 <%= render partial: "shared/header" %>
-<div>
-<h1>Add new recipe</h1>
-  <%= form_for @recipe do |f| %>
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title, class: "border" %>
-    </p>
-    <p>
-      <%= f.label :description %><br>
-      <%= f.text_area :description, class: "border"%>
-    </p>
-
-    <%= f.fields_for :ingredients do |f| %>
-          <%= render 'ingredient_fields', f: f %>
-      <%end%>
-    <%= link_to_add_fields 'Add Recipe Ingredient', f, :ingredients %>
-    <br>
-    <%= f.submit %>
-  <% end %>
+<div class="min-h-screen flex justify-center bg-gray-50 py-6 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <h2 class="text-center text-3xl font-extrabold text-gray-900">
+      Add a New Recipe
+    </h2>
+    <div class="max-w-md w-full space-y-3">
+      <%= form_for @recipe do |f|%>
+        <div class="rounded-md shadow-sm -space-y-px">
+          <%= f.label :"Recipe title", class: "" %><br>
+          <%= f.text_field :title, class: "appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+        </div>
+        <p>
+          <%= f.label :"Recipe description" %><br>
+          <%= f.text_area :description, class:"appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"%>
+        </p>
+      <div class="mb-3">
+        <%= f.fields_for :ingredients do |f| %>
+            <%= render 'ingredient_fields', f: f %>
+          <%end%>
+          <div class="py-2 rounded text-xs group inline py-1 px-2 rounded text-green-dark border-green-dark">
+            <%= link_to_add_fields 'Add Ingredient', f, :ingredients, class:"" %>            
+          </div>
+      </div>
+        <%= f.submit "Create New Recipe", class:"group relative m-auto flex justify-center py-2 px-4 border border-green-dark text-sm font-medium rounded-md text-green-dark bg-white hover:text-white hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <script>
