@@ -1,0 +1,8 @@
+<%= link_to my_recipes_path(my_recipe.id) do %>
+<div class="mb-1 flex flex-col m-auto justify-center w-10/12 hover:border-green-dark shadow border-r-8 border-b-8 hover:shadow-lg pb-3 transition duration-100 ease-in-out transform hover:-translate-y-2 hover:scale-105">
+    <h3 class="font-semibold text-md text-black m-2"> 
+        <%= my_recipe.title %> <br>
+        <%= my_recipe.description %><br>  
+    </h3>
+</div>
+<% end %>
