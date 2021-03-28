@@ -1,0 +1,7 @@
+<%= render partial: "shared/header" %>
+
+<%= @recipe.each do |r| %>
+    <%= r.title %> <br>
+    <%= r.description %><br>
+     Recipe made by: <%= r.user.id %> <br>
+<% end %>
