@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    before_action :authenticate_user!, only: [:new]
+    before_action :authenticate_user!, only: [:new, :create, :update]
 
     def index 
         @recipes = Spoonacular.search_recipes(params[:query])
@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
     def new
         @recipe = Recipe.new
         @recipe.ingredients.build
+        @recipe.steps.build
     end
 
     def create
@@ -30,7 +31,6 @@ class RecipesController < ApplicationController
         redirect_to my_recipe_path(@recipe)
     end
 
-    
     def recipe_params
         params.require(:recipe).permit(
             :title, :description,
