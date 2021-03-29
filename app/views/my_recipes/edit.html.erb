@@ -2,7 +2,7 @@
 <div class="min-h-screen flex justify-center bg-gray-50 py-6 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8">
     <h2 class="text-center text-3xl font-extrabold text-gray-900">
-     Edit Recipe
+      Add a New Recipe
     </h2>
     <div class="max-w-md w-full space-y-3">
       <%= form_for @recipe do |f|%>
@@ -18,35 +18,20 @@
         <%= f.fields_for :ingredients do |f| %>
             <%= render 'ingredient_fields', f: f %>
           <%end%>
-          <div class="py-2 rounded text-xs group inline py-1 px-2 rounded text-green-dark border-green-dark">
-            <%= link_to_add_fields 'Add Ingredient', f, :ingredients, class:"" %>            
+          <div class="py-2 rounded text-sm group inline py-1 px-2 rounded text-green-dark border-green-dark">
+            <%= link_to_add_association 'Add Ingredient', f, :ingredients, class:"" %>            
           </div>
       </div>
       <div class="mb-3">
         <%= f.fields_for :steps do |f| %>
             <%= render 'step_fields', f: f %>
           <%end%>
-          <div class="py-2 rounded text-xs group inline py-1 px-2 rounded text-green-dark border-green-dark">
-            <%= link_to_add_fields 'Add Step', f, :steps, class:"" %>            
+          <div class="py-2 rounded text-sm group inline py-1 px-2 rounded text-green-dark border-green-dark">
+            <%= link_to_add_association 'Add Step', f, :steps, class:"" %>            
           </div>
       </div>
-        <%= f.submit "Create New Recipe", class:"group relative m-auto flex justify-center py-2 px-4 border border-green-dark text-sm font-medium rounded-md text-green-dark bg-white hover:text-white hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+        <%= f.submit "Save Changes", class:"group relative m-auto flex justify-center py-2 px-4 border border-green-dark text-sm font-medium rounded-md text-green-dark bg-white hover:text-white hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
       <% end %>
     </div>
   </div>
 </div>
-
-<script>
-$("[data-form-prepend]").on("click", function(e) {
-    var obj = $($(this).attr("data-form-prepend"));
-    obj.find("input, select, textarea").each(function() {
-      $(this).attr("name", function() {
-        return $(this)
-          .attr("name")
-          .replace("new_record", new Date().getTime());
-      });
-    });
-    obj.insertBefore(this);
-    return false;
-  });
-</script>
