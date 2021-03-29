@@ -24,10 +24,18 @@ class RecipesController < ApplicationController
         end
     end
 
+    def update
+        @recipe = Recipe.find(params[:id])
+        @recipe.update(recipe_params)
+        redirect_to my_recipe_path(@recipe)
+    end
+
+    
     def recipe_params
         params.require(:recipe).permit(
             :title, :description,
-            ingredients_attributes:[ :measurement, :description, :_destroy ])
+            ingredients_attributes:[ :measurement, :description, :_destroy ],
+            steps_attributes:[ :order, :description, :_destroy ])
     end
 
 end
