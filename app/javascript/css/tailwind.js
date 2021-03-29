@@ -1,5 +1,5 @@
 
-var tailwindcss = require('tailwindcss');
+
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
