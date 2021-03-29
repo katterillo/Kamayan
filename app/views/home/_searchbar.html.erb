@@ -7,11 +7,11 @@
 <%# end %>
 
 <%= form_for(@recipe, url: recipes_path, method: :get) do |f| %>
-      <div class="mb-3">
+      <div class="mb-3 text-left px-16 lg:px-24">
             <%= f.fields_for :ingredients do |f| %>
                   <%= render 'ingredient_fields', f: f %>
             <%end%>
-            <div class="py-2 rounded text-sm group inline py-1 px-2 rounded text-green-dark border-green-dark">
+            <div class="px-2 rounded text-sm group hover:text-blue-700">
                   <%= link_to_add_association 'Add Ingredient', f, :ingredients, class:"" %>            
             </div>
       </div>

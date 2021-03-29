@@ -1,9 +1,6 @@
  <div class="nested-fields">
-    <div class="flex items-center text-sm">
-        <div class="flex flex-col">
-            <%= f.label :description, class:"px-1"%>
-            <%= f.text_field :description,  class: "px-1 appearance-none rounded relative block w-9/12 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
-        </div>
-        <%= link_to_remove_association "Delete", f %>
+    <div class="m-2">
+        <%= f.text_field :description,  class: "shadow-md outline-none bg-gray-200 rounded focus:bg-white"%>
+        <%= link_to_remove_association "Delete", f, class: "group text-sm hover:text-blue-700" %>
     </div>
  </div>
