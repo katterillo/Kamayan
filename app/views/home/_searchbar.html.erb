@@ -1,4 +1,19 @@
-<%= form_with url: "/recipes", class: "", method: :get do |form| %>
-      <%= form.search_field :query, placeholder: @query, class: "shadow-md outline-none bg-gray-200 rounded focus:bg-white" %>
-      <%= form.submit "Search", class: "rounded border-gray-500 font-custom bg-gray-200 text-gray-700 hover:bg-green-dark hover:text-white" %>
+<%#= form_with url: "/recipes", class: "", method: :get do |form| %>
+      <%#= form.search_field :ingredient, placeholder: @ingredient, class: "shadow-md outline-none bg-gray-200 rounded focus:bg-white" %>
+      <%# if request.path == "/recipes" %>
+            <%#= form.select :cuisine, Spoonacular::CUISINES, include_blank: true, selected: params[:cuisine] %>
+      <%#end%>
+      <%#= form.submit "Search", class: "rounded border-gray-500 font-custom bg-gray-200 text-gray-700 hover:bg-green-dark hover:text-white" %>
+<%# end %>
+
+<%= form_for(@recipe, url: recipes_path, method: :get) do |f| %>
+      <div class="mb-3">
+            <%= f.fields_for :ingredients do |f| %>
+                  <%= render 'ingredient_fields', f: f %>
+            <%end%>
+            <div class="py-2 rounded text-sm group inline py-1 px-2 rounded text-green-dark border-green-dark">
+                  <%= link_to_add_association 'Add Ingredient', f, :ingredients, class:"" %>            
+            </div>
+      </div>
+      <%= f.submit "Search", class:"group relative m-auto flex justify-center py-2 px-4 border border-green-dark text-sm font-medium rounded-md text-green-dark bg-white hover:text-white hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
 <% end %>

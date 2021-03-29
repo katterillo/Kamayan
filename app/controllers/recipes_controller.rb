@@ -2,8 +2,10 @@ class RecipesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :update]
 
     def index 
-        @recipes = Spoonacular.search_recipes(params[:query])
+        @recipes = Spoonacular.search_recipes(ingredients_params, params[:cuisine])
         @query = (params[:query])
+        @recipe = Recipe.new
+        @recipe.ingredients.build
     end
     
     def show
@@ -36,6 +38,14 @@ class RecipesController < ApplicationController
             :title, :description,
             ingredients_attributes:[ :id, :measurement, :description, :_destroy ],
             steps_attributes:[ :id, :order, :description, :_destroy ])
+    end
+
+    def ingredients_params
+        ingredients = ""
+        params.require(:recipe)[:ingredients_attributes].each do |ingredient|
+            ingredients = ingredients + ingredient[1]["description"] + ","
+        end
+       ingredients
     end
 
 end

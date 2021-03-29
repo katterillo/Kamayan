@@ -1,9 +1,37 @@
 class Spoonacular
-    def self.search_recipes(query)
+
+    CUISINES = %w[African
+        American
+        British
+        Cajun
+        Caribbean
+        Chinese
+        Eastern European
+        European
+        French
+        German
+        Greek
+        Indian
+        Irish
+        Italian
+        Japanese
+        Jewish
+        Korean
+        Latin American
+        Mediterranean
+        Mexican
+        Middle Eastern
+        Nordic
+        Southern
+        Spanish
+        Thai
+        Vietnamese]
+    def self.search_recipes(query, cuisine = nil)
         resp = Faraday.get('https://api.spoonacular.com/recipes/complexSearch') do |req|
             req.params['apiKey'] = ENV["SPOONACULAR_API_KEY"]
             req.params['includeIngredients'] = query
             req.params['fillIngredients'] = true
+            req.params['cuisine'] = cuisine if cuisine.present?
           end
           return JSON.parse(resp.body)["results"]
     end
