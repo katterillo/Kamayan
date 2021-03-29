@@ -5,11 +5,12 @@
         <%= link_to "Home", root_path, class: "font-semibold text-lg mr-8 text-white hover:underline" %>
         <%= link_to "About", about_index_url, class: "font-semibold text-lg text-white hover:underline" %>       
         <div class="ml-auto">
+                <%= link_to "Search", recipes_url, class:"font-semibold pt-6 pr-6 mx-3 text-lg text-white hover:underline" %>
                 <% if user_signed_in?%>
                         <%=link_to "My Recipes", my_recipes_url,class: "font-semibold pt-6 pr-6 mx-3 text-lg text-white hover:underline" %>
                         <%= link_to "Logout",destroy_user_session_url, method: :delete, class: "font-semibold pt-6 pr-6 mx-3 text-lg text-white hover:underline" %>
                 <% else %>
-                        <%= link_to "Login",new_user_session_url, class: "font-semibold pt-6 pr-6 mx-6 text-lg text-white hover:underline" %>
+                        <%= link_to "Login",new_user_session_url, class: "font-semibold pt-6 pr-6 mx-3 text-lg text-white hover:underline" %>
                 <%end%>
         </div>
 </nav>
