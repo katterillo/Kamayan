@@ -9,11 +9,16 @@
 <%= form_for(@recipe, url: recipes_path, method: :get) do |f| %>
       <div class="mb-3 text-left px-16 lg:px-24">
             <%= f.fields_for :ingredients do |f| %>
-                  <%= render 'ingredient_fields', f: f %>
+                  <%= render 'home/ingredient_fields', f: f %>
             <%end%>
             <div class="px-2 rounded text-sm group hover:text-blue-700">
                   <%= link_to_add_association 'Add Ingredient', f, :ingredients, class:"" %>            
             </div>
+      <% if request.path == "/recipes" %>
+            <div class="mt-8 border-2 border-black inline">
+                  <%= f.select :cuisine, Spoonacular::CUISINES, include_blank: true, selected: params[:cuisine]%>
+            </div>
+      <%end%>
       </div>
       <%= f.submit "Search", class:"group relative m-auto flex justify-center py-2 px-4 border border-green-dark text-sm font-medium rounded-md text-green-dark bg-white hover:text-white hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
 <% end %>
