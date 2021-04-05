@@ -26,12 +26,25 @@ class Spoonacular
         Spanish
         Thai
         Vietnamese]
-    def self.search_recipes(query, cuisine = nil)
+        INTOLERANCES = %w[Dairy
+            Egg
+            Gluten
+            Grain
+            Peanut
+            Seafood
+            Sesame
+            Shellfish
+            Soy
+            Sulfite
+            Tree Nut
+            Wheat]
+    def self.search_recipes(query, cuisine = nil, intolerances = nil)
         resp = Faraday.get('https://api.spoonacular.com/recipes/complexSearch') do |req|
             req.params['apiKey'] = ENV["SPOONACULAR_API_KEY"]
             req.params['includeIngredients'] = query
             req.params['fillIngredients'] = true
             req.params['cuisine'] = cuisine if cuisine.present?
+            req.params['intolerances'] = intolerances if intolerances.present?
           end
           return JSON.parse(resp.body)["results"]
     end

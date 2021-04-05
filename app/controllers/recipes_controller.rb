@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :update]
 
     def index 
-        @recipes = Spoonacular.search_recipes(ingredients_params, params[:cuisine])
+        @recipes = Spoonacular.search_recipes(ingredients_params, params[:cuisine], params[:intolerances])
         @query = (params[:query])
         @recipe = Recipe.new
         @recipe.ingredients.build
