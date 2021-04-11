@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :update]
 
     def index 
-        @recipes = Spoonacular.search_recipes(ingredients_params, params[:cuisine], params[:intolerances])
+        @recipes = Spoonacular.search_recipes(ingredients_params, recipe_params[:cuisine], recipe_params[:intolerances])
         @query = (params[:query])
         @recipe = Recipe.new
         @recipe.ingredients.build
@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
 
     def recipe_params
         params.require(:recipe).permit(
-            :title, :description,
+            :title, :description, :cuisine, :intolerances,
             ingredients_attributes:[ :id, :measurement, :description, :_destroy ],
             steps_attributes:[ :id, :order, :description, :_destroy ])
     end
