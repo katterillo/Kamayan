@@ -1,6 +1,6 @@
  <div class="nested-fields">
-    <div class="m-2">
-        <%= f.text_field :description,  class: "shadow-md outline-none bg-gray-200 rounded focus:bg-white"%>
+    <div class="m-2 text-center">
+        <%= f.text_field :description, placeholder: @ingredient, class: "w-7/12 border border-grey-400 focus:outline-none rounded focus:ring-2 focus:ring-grey-600 focus:border-transparent"%>
         <%= link_to_remove_association "X", f, class: "group text-sm text-red-500 hover:text-red-700" %>
     </div>
  </div>
