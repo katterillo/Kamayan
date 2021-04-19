@@ -7,6 +7,10 @@
 </div>
 <div class="w-11/12 border border-2 py-10 m-10 mt-12 px-10 shadow justify-center m-auto bg-white">
     <div class="grid grid-flow-row grid-cols-2 xl:grid-cols-3 justify-center px-4">
+    <%if @recipes.any?%>
         <%= render partial: "recipe", collection: @recipes %>
+        <%else%>
+        <h2>No Results Found</h2>
+        <%end%>
     </div>
 </div>
