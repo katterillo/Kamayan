@@ -1,4 +1,4 @@
-<div class="">
+<div>
     <%= render partial: "shared/header" %>
     <div class="w-11/12 right-0 m-auto py-3">
     <%= link_to 'Edit', edit_my_recipe_path(@recipe),  class: "ml-auto group font-medium text-lg border-2 border-blue-700 text-blue-700 py-2 px-4 hover:text-white rounded hover:bg-blue-700 hover:border-transparent" %>
@@ -6,38 +6,39 @@
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
     </div>
-    <div class="pl-20 pr-16 pt-20 m-auto">
-        <div class="flex flex-row">
-            <div class="flex flex-col w-6/12 ">
-                <h1 class="font-bold text-5xl text-black">
-                    <%= @recipe.title %>
-                </h1>
-            </div>
-        </div>
-        <div class="flex flex-row pb-6 mt-20">
-        <div class="flex flex-col">
-         <h2 class=" text-2xl font-bold mt-6">
+    <div class="pl-36 pr-16 pt-10 m-auto">
+        <h1 class="font-bold text-5xl text-black">
+            <%= @recipe.title %>
+        </h1>
+        <h3 class="leading loose mt-10">
+        <%=@recipe.description%>
+        </h3>
+    </div>
+    <div class="mt-10 flex justify-between">
+        <div class="pl-64 pr-32">
+            <h2 class="text-2xl font-bold leading loose">
                 Steps
-        </h2>
-        <% if @recipe.steps.any? %>
-            <% @recipe.steps.each do |step| %>
-                <br><%= step.order %>.
-                <%= step.description %>
-            <%end%>
-        <% end %>
-        </div>
-            <div class="mb-6 px-32 ml-auto w-5/12 h-4/6 top-0">
-                <h2 class="-mb-16 text-2xl font-bold mt-6">
-                Ingredients
-                </h2>
-                <h3 class="mt-8 leading-loose">
-                    <% if @recipe.ingredients.any? %>
-                        <% @recipe.ingredients.each do |ingredient| %>
-                        <br><%= ingredient.measurement %>
-                        <%= ingredient.description %>
-                        <%end%>
+            </h2>
+            <h3 class="leading-loose">
+                <% if @recipe.steps.any? %>
+                    <% @recipe.steps.each do |step| %>
+                        <br><%= step.order %>.
+                        <%= step.description %>
                     <%end%>
-                </h3>
-            </div>
+                <% end %>
+            </h3>
+        </div>
+        <div class="pr-96">
+            <h2 class="text-2xl font-bold">
+                Ingredients
+            </h2>
+            <h3 class="leading-loose">
+                <% if @recipe.ingredients.any? %>
+                    <% @recipe.ingredients.each do |ingredient| %>
+                    <br>•<%= ingredient.measurement %>
+                    <%= ingredient.description %>
+                    <%end%>
+                <%end%>
+            </h3>
         </div>
 </div>
