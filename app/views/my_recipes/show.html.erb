@@ -1,4 +1,5 @@
-<%= render partial: "shared/header" %>
+<div>
+    <%= render partial: "shared/header" %>
     <div class="w-11/12 right-0 m-auto py-3">
         <%= link_to 'Edit', edit_my_recipe_path(@recipe),  class: "ml-auto group font-medium text-lg border-2 border-blue-700 text-blue-700 py-2 px-4 hover:text-white rounded hover:bg-blue-700 hover:border-transparent" %>
         <%= link_to "Destroy", my_recipe_path(@recipe), class: "ml-auto group font-medium text-lg border-2 border-red-700 text-red-700 py-2 px-4 hover:text-white rounded hover:bg-red-700 hover:border-transparent",
@@ -6,24 +7,38 @@
                     data: { confirm: "Are you sure?" } %>
     </div>
 
-<%= @recipe.title %>
-<%=@recipe.description%>
-
-Steps
-
-<% if @recipe.steps.any? %>
-<% @recipe.steps.each do |step| %>
-<br><%= step.order %>.
-<%= step.description %>
-<%end%>
-<% end %>
-
-
-Ingredients
-
-<% if @recipe.ingredients.any? %>
-<% @recipe.ingredients.each do |ingredient| %>
-<br>•<%= ingredient.measurement %>
-<%= ingredient.description %>
-<%end%>
-<%end%>
+    <div class="pl-36 pr-16 pt-10 m-auto">
+        <h1 class="font-bold text-5xl text-black">
+            <%= @recipe.title %>
+        </h1>
+        <h3 class="leading-loose mt-10">
+        <%=@recipe.description%>
+        </h3>
+    </div>
+    <div class="mt-10 flex justify-between">
+        <div class="pl-64 pr-32">
+            <h2 class="text-2xl font-bold leading-loose">
+                Steps
+            </h2>
+            <h3 class="leading-loose">
+                <% if @recipe.steps.any? %>
+                    <% @recipe.steps.each do |step| %>
+                        <br><%= step.order %>.
+                        <%= step.description %>
+                    <%end%>
+                <%end%>
+             </h3>
+        </div>
+        <div class="pr-80">
+            <h2 class="text-2xl font-bold">
+                Ingredients
+            </h2>
+            <% if @recipe.ingredients.any? %>
+                <% @recipe.ingredients.each do |ingredient| %>
+                    <br>•<%= ingredient.measurement %>
+                    <%= ingredient.description %>
+                <%end%>
+            <%end%>
+        </div>
+    </div>
+</div>
