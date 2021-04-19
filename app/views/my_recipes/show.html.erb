@@ -6,11 +6,11 @@
                     method: :delete,
                     data: { confirm: "Are you sure?" } %>
     </div>
-    <div class="pl-36 pr-16 pt-10 m-auto">
-        <h1 class="font-bold text-5xl text-black">
+    <div class="m-auto">
+        <h1 class="pl-36 pr-16 pt-10 m-auto font-bold text-5xl text-black">
             <%= @recipe.title %>
         </h1>
-        <h3 class="leading-loose mt-10">
+        <h3 class="leading-loose mt-10 pl-36 pr-16">
             <%=@recipe.description%>
         </h3>
     </div>
@@ -28,8 +28,8 @@
                 <%end%>
              </h3>
         </div>
-        <div class="pr-80">
-            <h2 class="text-2xl font-bold">
+        <div class="">
+            <h2 class="pr-80 text-2xl font-bold">
                 Ingredients
             </h2>
             <% if @recipe.ingredients.any? %>
