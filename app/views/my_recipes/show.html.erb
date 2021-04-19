@@ -14,12 +14,12 @@
             <%=@recipe.description%>
         </h3>
     </div>
-    <div class="pl-64 pr-32 mt-10 flex justify-between leading-loose">
-        <div class="pr-32 ">
+    <div class="pl-64 pr-96 mt-10 flex justify-between leading-loose">
+        <div class="pr-32">
             <h2 class="text-2xl font-bold">
                 Steps
             </h2>
-            <h3 class="leading-loose">
+            <h3 class="">
                 <% if @recipe.steps.any? %>
                     <% @recipe.steps.each do |step| %>
                         <br><%= step.order %>.
@@ -29,7 +29,7 @@
              </h3>
         </div>
         <div class="">
-            <h2 class="pr-80 text-2xl font-bold">
+            <h2 class="text-2xl font-bold">
                 Ingredients
             </h2>
             <% if @recipe.ingredients.any? %>
