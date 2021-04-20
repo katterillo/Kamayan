@@ -6,14 +6,14 @@
                     method: :delete,
                     data: { confirm: "Are you sure?" } %>
     </div>
-        <div class="mt-10 text-center">
+        <div class="mt-10 px-36">
             <h1 class="font-bold text-5xl text-black">
                 <%= @recipe.title %>   
             </h1>
         </div>
-    <div class="mt-10 grid grid-cols-2 p-20 justify-center text-center">
-        <div>       
-            <h2 class="text-2xl font-bold leading loose">
+    <div class="mt-20 grid grid-cols-2 w-11/12 px-36 justify-center">
+        <div class="px-10 leading-loose">       
+            <h2 class="text-2xl font-bold">
                 Steps
             </h2>
             <% if @recipe.steps.any? %>
@@ -23,8 +23,8 @@
                 <%end%>
             <%end%>
         </div>
-        <div>
-            <h2 class="text-2xl font-bold leading loose">
+        <div class="px-10 leading-loose">
+            <h2 class="text-2xl font-bold">
                 Ingredients
             </h2>
             <% if @recipe.ingredients.any? %>
